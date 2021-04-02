@@ -1,6 +1,6 @@
 import React from 'react';
 import { useACL } from './useACL';
-import { FieldProps } from 'react-admin';
+import { FieldProps } from 'ra-ui-materialui';
 import { PermissionKey } from './types';
 
 type Props<T> = FieldWithPermissionProps<T> & FieldProps;

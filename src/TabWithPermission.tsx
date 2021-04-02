@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabProps, Tab } from 'react-admin';
+import { TabProps, Tab } from 'ra-ui-materialui';
 import { useACL } from './useACL';
 import { PermissionKey } from './types';
 
