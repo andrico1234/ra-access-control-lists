@@ -4,9 +4,9 @@
 
 React Admin permission management made easy. This library is heavily inspired by [ra-auth-acl](https://github.com/marmelab/ra-auth-acl).
 
-RA-ACL aims to perform two jobs:
-- Making managing role-based permissions a breeze
-- Providing declarative components to keep your code clean/maintanable
+RA-ACL aims to:
+- Make managing role-based permissions a breeze
+- Provide declarative components to keep your code clean/maintanable
 
 ## Getting Started
 
@@ -65,7 +65,7 @@ With that out of the way, you're able to start using RA-ACL!
 
 ### Using RA-ACL
 
-RA-ACL exports a handy `useACL` function, as well as a handful of declarative components that do all the heavy lifting
+RA-ACL exports a handy `useACL` function, as well as a handful of declarative components that do the heavy lifting
 
 #### useACL
 
@@ -133,7 +133,7 @@ export function Actions({
 }
 ```
 
-If you're logged in as an admin, they'll the edit button no-problemo. If you're logged in as a user, you should not see the edit button. Why run the example to see this in action?
+If you're logged in as an admin, you'll see the edit button no-problemo. If you're logged in as a user, you won't see the edit button. You can run the example to see this in action. Details [here](#example)
 
 ### WithPermission Components
 
