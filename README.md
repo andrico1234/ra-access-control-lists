@@ -52,9 +52,9 @@ const authProvider = {
     // this should be saved to local storage during login()
     const role = localStorage.getItem('role');
 
-    const userPermissions = permissions[role];
+    const rolePermissions = permissions[role];
 
-    return Promise.resolve(userPermissions)
+    return Promise.resolve(rolePermissions)
   }
 }
 ```
@@ -199,6 +199,27 @@ After setting up your permissions accordingly, you can add the following to your
 
 #### TabWithPermission
 
-A generic wrapper over React Admin's `Tab` component.
+Todo
 
-Scenario: You 
+
+## Example
+
+To run the example you need to:
+
+`cd example`
+`yarn`
+`yarn start`
+
+which will run the repo on localhost:1234
+
+This is a pared down version of RA's simple example.
+
+### Points of interest
+
+- `useAcl` is used in `ShowActions` to hide/show the `EditButton`
+- `TabWithPermission` is used in `PostShow` to hide/show the `comments` tab
+- `ResourceWithPermission` is used in the `index` file to hide/show `resources` in the `Menu`.
+- `FieldWithPermission` is used in `PostList` to hide/show the `EditButton`. 
+- `FieldWithPermission` is used in `PostList` to hide/show the `EditButton`. 
+- `FieldWithPermission` is used in the `PostShow` to hide/show the `SelectField`
+

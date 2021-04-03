@@ -28,19 +28,6 @@ import {
   required,
   FormDataConsumer,
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
-import { Box } from '@material-ui/core';
-
-import PostTitle from './PostTitle';
-import TagReferenceInput from './TagReferenceInput';
-
-const EditActions = ({ basePath, data, hasShow }) => (
-  <TopToolbar>
-    <CloneButton className="button-clone" basePath={basePath} record={data} />
-    {hasShow && <ShowButton basePath={basePath} record={data} />}
-  </TopToolbar>
-);
-
-const SanitizedBox = ({ fullWidth, basePath, ...props }) => <Box {...props} />;
 
 const PostEdit = ({ permissions, ...props }) => (
   <Edit {...props}>
@@ -64,43 +51,41 @@ const PostEdit = ({ permissions, ...props }) => (
         <ImageInput multiple source="pictures" accept="image/*">
           <ImageField source="src" title="title" />
         </ImageInput>
-        {permissions === 'admin' && (
-          <ArrayInput source="authors">
-            <SimpleFormIterator>
-              <ReferenceInput label="User" source="user_id" reference="users">
-                <AutocompleteInput />
-              </ReferenceInput>
-              <FormDataConsumer>
-                {({ formData, scopedFormData, getSource, ...rest }) =>
-                  scopedFormData && scopedFormData.user_id ? (
-                    <SelectInput
-                      label="Role"
-                      source={getSource?.('role')}
-                      choices={[
-                        {
-                          id: 'headwriter',
-                          name: 'Head Writer',
-                        },
-                        {
-                          id: 'proofreader',
-                          name: 'Proof reader',
-                        },
-                        {
-                          id: 'cowriter',
-                          name: 'Co-Writer',
-                        },
-                      ]}
-                      {...rest}
-                    />
-                  ) : null
-                }
-              </FormDataConsumer>
-            </SimpleFormIterator>
-          </ArrayInput>
-        )}
+
+        <ArrayInput source="authors">
+          <SimpleFormIterator>
+            <ReferenceInput label="User" source="user_id" reference="users">
+              <AutocompleteInput />
+            </ReferenceInput>
+            <FormDataConsumer>
+              {({ formData, scopedFormData, getSource, ...rest }) =>
+                scopedFormData && scopedFormData.user_id ? (
+                  <SelectInput
+                    label="Role"
+                    source={getSource?.('role')}
+                    choices={[
+                      {
+                        id: 'headwriter',
+                        name: 'Head Writer',
+                      },
+                      {
+                        id: 'proofreader',
+                        name: 'Proof reader',
+                      },
+                      {
+                        id: 'cowriter',
+                        name: 'Co-Writer',
+                      },
+                    ]}
+                    {...rest}
+                  />
+                ) : null
+              }
+            </FormDataConsumer>
+          </SimpleFormIterator>
+        </ArrayInput>
       </FormTab>
       <FormTab label="post.form.miscellaneous">
-        <TagReferenceInput reference="tags" source="tags" label="Tags" />
         <ArrayInput source="backlinks">
           <SimpleFormIterator>
             <DateInput source="date" />

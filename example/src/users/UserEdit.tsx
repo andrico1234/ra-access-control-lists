@@ -39,13 +39,6 @@ const UserEditToolbar = props => {
   );
 };
 
-const EditActions = ({ basePath, data, hasShow }) => (
-  <TopToolbar>
-    <CloneButton className="button-clone" basePath={basePath} record={data} />
-    <ShowButton basePath={basePath} record={data} />
-  </TopToolbar>
-);
-
 const UserEdit = ({ permissions, ...props }) => (
   <Edit {...props}>
     <TabbedForm defaultValue={{ role: 'user' }} toolbar={<UserEditToolbar />}>

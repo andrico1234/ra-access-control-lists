@@ -1,4 +1,5 @@
 import { AuthProvider } from 'ra-core';
+import { permissions } from './permissions';
 
 // Authenticated by default
 export const authProvider: AuthProvider = {
@@ -58,16 +59,16 @@ export const authProvider: AuthProvider = {
       : Promise.resolve();
   },
   getPermissions: () => {
-    const role = localStorage.getItem('role');
+    const role = localStorage.getItem('role') ?? 'user';
+    const rolePermissions = permissions[role];
 
-    
-    return Promise.resolve(role);
+    return Promise.resolve(rolePermissions);
   },
   getIdentity: () => {
     return Promise.resolve({
-      id: localStorage.getItem('login'),
-      fullName: localStorage.getItem('user'),
-      avatar: localStorage.getItem('avatar'),
+      id: localStorage.getItem('login') ?? '',
+      fullName: localStorage.getItem('user') ?? '',
+      avatar: localStorage.getItem('avatar') ?? '',
     });
   },
 };

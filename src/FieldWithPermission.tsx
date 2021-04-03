@@ -11,7 +11,7 @@ type FieldWithPermissionProps<T> = {
     permission: PermissionKey;
   };
   inputProps: T;
-  Input: (props: FieldProps & T) => JSX.Element;
+  Input: (props: FieldProps & T) => JSX.Element | null;
 };
 
 export function FieldWithPermission<T>(props: Props<T>) {

@@ -1,6 +1,5 @@
 /* eslint react/jsx-key: off */
 import * as React from 'react';
-import { Resource } from 'ra-core'; // eslint-disable-line import/no-unresolved
 import { Admin } from 'react-admin'; // eslint-disable-line import/no-unresolved
 import { render } from 'react-dom';
 import { ResourceWithPermission } from '../src/ResourceWithPermission';
@@ -17,6 +16,7 @@ render(
   >
     <ResourceWithPermission name="posts" {...posts} />
     <ResourceWithPermission name="users" {...users} />
+    <ResourceWithPermission name="comments" />
   </Admin>,
   document.getElementById('root')
 );
