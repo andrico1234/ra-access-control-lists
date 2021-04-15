@@ -116,7 +116,7 @@ export function PostShow() {
 and your `Action` component will look like this:
 
 ```tsx
-import { useACL } from 'ra-acl';
+import { useACL } from 'ra-access-control-lists';
 
 export function Actions({
   resource = '',

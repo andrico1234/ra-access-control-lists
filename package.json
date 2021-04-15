@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
+    "ra-access-control-lists": "^0.1.1",
     "ra-core": "^3.14.2",
     "ra-ui-materialui": "^3.14.2",
     "react-admin": "^3.14.2"
