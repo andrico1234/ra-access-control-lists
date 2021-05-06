@@ -197,9 +197,21 @@ After setting up your permissions accordingly, you can add the following to your
 />
 ```
 
+You can also supply some options in the event that you want to target manage permissions where the resource name is different to the `name` property. This can be achieved by doing:
+
+```tsx
+<ResourceWithPermission
+  name="users"
+  list={UserShow}
+  options={{
+    resource: "admin",
+  }}
+/>
+```
+
 #### TabWithPermission
 
-Todo
+A wrapper over React Admin's `Tab` component, and behaves exactly like the `FieldWithPermission` component.
 
 
 ## Example

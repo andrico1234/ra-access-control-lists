@@ -2,9 +2,19 @@ import React from 'react';
 import { Resource, ResourceProps } from 'ra-core';
 import { useACL } from './useACL';
 
-export function ResourceWithPermission(props: ResourceProps) {
-  const { name, list, create, edit, show } = props;
-  const access = useACL(name);
+interface Props extends ResourceProps {
+  options?: {
+    label?: string;
+    resource?: string;
+  };
+}
+
+export function ResourceWithPermission(props: Props) {
+  const { name, list, create, edit, show, options } = props;
+
+  const resource = options?.resource;
+  const resourceToAccess = resource ?? name;
+  const access = useACL(resourceToAccess);
 
   return (
     <Resource
