@@ -1,7 +1,11 @@
 import get from 'lodash.get';
-import { usePermissions } from 'ra-core';
 
-type Permissions = ReturnType<typeof usePermissions>;
+interface Permissions {
+  loading: boolean;
+  loaded: boolean;
+  permissions?: any;
+  error?: any;
+}
 
 export const hasAccess = (
   permissions: Permissions,

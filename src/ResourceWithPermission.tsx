@@ -12,6 +12,8 @@ interface Props extends ResourceProps {
 export function ResourceWithPermission(props: Props) {
   const { name, list, create, edit, show, options } = props;
 
+  console.log('with perm', name, list);
+
   const resource = options?.resource;
   const resourceToAccess = resource ?? name;
   const access = useACL(resourceToAccess);
